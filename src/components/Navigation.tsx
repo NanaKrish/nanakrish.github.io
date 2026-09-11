@@ -16,8 +16,8 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check if we're on the home page ('/bio')
-  const isHomePage = location.pathname === '/bio/';
+  // Check if we're on the home page ('/')
+  const isHomePage = location.pathname === '/';
 
   // Determine the base classes for the navigation bar
   const navClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -39,7 +39,7 @@ const Navigation: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <Link 
-            to="/bio/" 
+            to="/" 
             className={`text-2xl transition-all duration-300 hover:scale-105 ${linkTextColorClasses}`}
             style={{ fontWeight: '200' }}
           >

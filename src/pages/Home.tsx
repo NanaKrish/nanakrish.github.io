@@ -7,7 +7,7 @@ const Home: React.FC = () => {
       {/* Background Image Section - From very top to just below photo */}
       <div
         className="absolute top-0 left-0 right-0 h-[450px] sm:h-[520px] bg-cover bg-center bg-no-repeat" // Increased mobile height to 450px for more text space
-        style={{ backgroundImage: 'url(/bio/bg.jpg)' }}
+        style={{ backgroundImage: 'url(/bg.jpg)' }}
       >
         {/* Even stronger overlay to make background much less visible */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/70 to-black/65" />
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
                   {/* Responsive photo size: smaller on mobile, larger on sm: */}
                   <div className="w-40 h-52 sm:w-56 sm:h-72 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-xl overflow-hidden shadow-2xl">
                     <img
-                      src="/bio/NK.png"
+                      src="/NK.png"
                       alt="Krishna Narayanan"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
                 <p className="text-neutral-700 text-sm sm:text-base font-normal">
                   Find a copy of my CV{' '}
                   <a 
-                    href="/bio/NK_CV_full-37.pdf" 
+                    href="/NK_CV_full-37.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"

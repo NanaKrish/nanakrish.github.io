@@ -3,7 +3,7 @@ import React from 'react';
 const Experience: React.FC = () => {
   const companyLogos = [
     { 
-      src: '/bio/SFU.png', 
+      src: '/SFU.png', 
       alt: 'SFU Logo', 
       caption: (
         <>
@@ -14,7 +14,7 @@ const Experience: React.FC = () => {
       )
     },
     { 
-      src: '/bio/IMSC.png', 
+      src: '/IMSC.png', 
       alt: 'IMSC Logo', 
       caption: (
         <>
@@ -25,7 +25,7 @@ const Experience: React.FC = () => {
       )
     },
     { 
-      src: '/bio/MUN.jpg', 
+      src: '/MUN.jpg', 
       alt: 'MUN Logo', 
       caption: (
         <>
@@ -36,7 +36,7 @@ const Experience: React.FC = () => {
       )
     },
     { 
-      src: '/bio/LIMOS.png', 
+      src: '/LIMOS.png', 
       alt: 'LIMOS Logo', 
       caption: (
         <>
@@ -47,7 +47,7 @@ const Experience: React.FC = () => {
       )
     },
     { 
-      src: '/bio/mango.png', 
+      src: '/mango.png', 
       alt: 'mango Logo', 
       caption: (
         <>
@@ -58,7 +58,7 @@ const Experience: React.FC = () => {
       )
     },
     { 
-      src: '/bio/CDOt.png', 
+      src: '/CDOt.png', 
       alt: 'CDOt Logo', 
       caption: (
         <>
