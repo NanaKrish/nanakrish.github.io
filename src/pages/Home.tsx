@@ -100,7 +100,7 @@ const Home: React.FC = () => {
                 <p className="text-neutral-700 text-sm sm:text-base font-normal">
                   Find a copy of my CV{' '}
                   <a 
-                    href="/NK_CV_full-37.pdf" 
+                    href="/NK_CV_full-2.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
