@@ -14,7 +14,7 @@ const Navigation = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
     // Check if we're on the home page ('/bio')
-    const isHomePage = location.pathname === '/bio/';
+    const isHomePage = location.pathname === '/';
     // Determine the base classes for the navigation bar
     const navClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-neutral-200/50' // Scrolled state for all pages
