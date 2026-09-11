@@ -66,8 +66,8 @@ const Home: React.FC = () => {
               {/* Academic Introduction */}
               <div className="prose-enhanced space-y-4 text-sm sm:text-base font-normal text-neutral-700">
                 <p>
-                  Welcome to my academic portfolio. I am currently a PhD Research Fellow, where I am fortunate to be advised by Lars Rohwedder within the Algorithms unit at the Department of Mathematics and Computer Science, University of Southern Denmark in Odense. I recently defended my master's thesis in Mathematics 
-                  at Simon Fraser University, Burnaby, BC, Canada under the supervision of Prof. Tamon Stephen, with a focus on Discrete Optimization. My master's work explores algorithmic questions in polytope theory and their computational complexity. 
+                  Welcome to my academic portfolio. I am currently a PhD Research Fellow at the University of Southern Denmark in Odense, where I am fortunate to be advised by Lars Rohwedder within the Algorithms unit at the Department of Mathematics and Computer Science. I recently defended my master's thesis in Mathematics 
+                  at Simon Fraser University, Burnaby, BC, Canada under the supervision of Prof. Tamon Stephen, with a focus on Discrete Optimization. My master's work explored algorithmic questions in polytope theory and their computational complexity. 
                 </p>
                 
                 <p>
@@ -78,9 +78,9 @@ const Home: React.FC = () => {
                 </p>
 
                 <p>
-                  I am interested in exploring anything in or at the intersection of Combinatorial Optimization, 
+                  My current focus is within the scope of hardness of approximation. More generally, my interests lie in or at the intersection of Combinatorial Optimization, 
                   Graph Theory, Polyhedral Combinatorics, and Computational Complexity Theory, 
-                  in no particular order.
+                  in no particular order. 
                 </p>
               </div>
 
@@ -110,7 +110,7 @@ const Home: React.FC = () => {
                 </p>
                 
                 <p className="text-xs text-neutral-500 pt-1">
-                  Last Updated: March 2026
+                  Last Updated: September 2026
                 </p>
               </div>
             </div>

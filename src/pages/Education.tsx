@@ -4,7 +4,7 @@ const Education: React.FC = () => {
   return (
     <div className="page-container">
       <div className="content-wrapper">
-        <h1 className="section-title">Education & Teaching Assistantship</h1>
+        <h1 className="section-title">Education & Teaching Assistantships</h1>
         
         <div className="space-y-8">
           {/* Education Section */}
@@ -54,8 +54,8 @@ const Education: React.FC = () => {
                   </p>
                 </div>
                 <p className="text-neutral-700 mb-6"> {/* Added mb-6 for spacing before new section */}
-                  Focusing on discrete optimization and polytope theory, exploring algorithmic questions 
-                  in polyhedral combinatorics and their computational complexity.
+                  Focusing on discrete optimization and polytope theory, exploring the computational complexity of algorithmic questions 
+                  in polyhedra arising from combinatorial optimization.
                 </p>
 
                 {/* NEW: Awards & Scholarships for M.Sc */}
@@ -218,11 +218,42 @@ const Education: React.FC = () => {
             <div className="space-y-6">
               <div className="card group">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-neutral-800">Teaching Assistant</h3>
+                  <span className="text-primary-600 font-medium">2026-</span>
+                </div>
+                <p className="text-neutral-600 mb-6">University of Southern Denmark, Odense</p>
+                {/* Spring 2024 */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-neutral-800 mb-4 text-lg">Fall 2026</h4>
+                  <div className="ml-4">
+                    <div className="border-l-2 border-primary-200 pl-4">
+                      <h5 className="font-medium text-neutral-800 mb-2">Scientific Programming - DM587</h5>
+                      <p className="text-neutral-700 text-sm">
+                        -
+                      </p>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+
+              <div className="card group">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-xl font-semibold text-neutral-800">Graduate Teaching Assistant - 1</h3>
                   <span className="text-primary-600 font-medium">2023 - 2025</span>
                 </div>
                 <p className="text-neutral-600 mb-6">Simon Fraser University (SFU), Burnaby & Surrey, BC</p>
-                
+                {/* Spring 2024 */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-neutral-800 mb-4 text-lg">Fall 2025</h4>
+                  <div className="ml-4">
+                    <div className="border-l-2 border-primary-200 pl-4">
+                      <h5 className="font-medium text-neutral-800 mb-2">Introductory Math Workshop (Surrey)</h5>
+                      <p className="text-neutral-700 text-sm">
+                        Facilitated office hours and examinations, including grading for MATH 100 - Pre-Calculus.
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 {/* Fall 2024 & Spring 2025 */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-neutral-800 mb-4 text-lg">Fall 2024 & Spring 2025</h4>

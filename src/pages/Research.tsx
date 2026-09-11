@@ -12,14 +12,17 @@ const Research: React.FC = () => {
             <h2 className="text-2xl font-semibold text-neutral-800 mb-6">Research Interests</h2>
             <div className="card group">
               <p className="text-neutral-700 mb-4">
-                My current research focuses on the theoretical aspects of discrete and 
-                combinatorial optimization. I'm particularly interested in exploring the computational complexity of geometric parameters in polytopes, which have implications in linear optimization. 
-                In the past, I've also worked on graph-theoretic problems, and they remain of interest to me. Algorithms and computational complexity theory are natural extensions of my research interests.  
+                My current research focuses on the questions arising in the larger overview of hardness of approximation. My interests over time have been in combinatorial optimization. I previously explored the computational complexity of geometric parameters in polytopes, which have implications in linear optimization. 
+                I've also worked on graph-theoretic problems, and they remain of interest to me. Algorithms and computational complexity theory are natural extensions of my research interests.  
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-semibold text-neutral-800 mb-3">Primary Areas:</h3>
                   <ul className="space-y-2 text-neutral-700">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Hardness of Approximation
+                    </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       Combinatorial Optimization
@@ -28,10 +31,6 @@ const Research: React.FC = () => {
                       <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       Linear Programming
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Graph Theory 
-                    </li>
                   </ul>
                 </div>
                 <div>
@@ -39,11 +38,15 @@ const Research: React.FC = () => {
                   <ul className="space-y-2 text-neutral-700">
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Algorithm Design & Analysis
+                      Graph Theory 
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       Computational Complexity
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Algorithm Design & Analysis
                     </li>
                   </ul>
                 </div>
