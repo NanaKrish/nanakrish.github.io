@@ -108,7 +108,34 @@ const Home: React.FC = () => {
                     here
                   </a>.
                 </p>
-                
+            <section className="bg-primary-50 rounded-3xl shadow-2xl p-6 sm:p-10 border border-primary-200"> {/* New accent background */}
+            <h2 className="text-3xl font-bold text-primary-800 mb-8 pb-3 border-b-2 border-primary-500">Contact</h2>
+            <div className="grid md:grid-cols-2 gap-10"> {/* Increased gap */}
+              <div>
+                <h3 className="text-2xl font-semibold text-primary-700 mb-4">Academic Email</h3>
+                <div className="space-y-4 text-neutral-700"> {/* Increased space */}
+                  <p>
+                    <span className="font-medium">Email:</span> <a href="mailto:nanakrish@imada.sdu.dk" className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200">nanakrish@imada.sdu.dk</a>
+                  </p>
+                  <p>
+                    <span className="font-medium">Institution:</span> Department of Mathematics and Computer Science, University of Southern Denmark, Odense (as on 21st August 2026)
+                  </p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-primary-700 mb-4">General & Personal Inquiries</h3>
+                <div className="space-y-4 text-neutral-700"> {/* Increased space */}
+                  <p>
+                    <span className="font-medium">Email:</span> <a href="mailto:nkrishna0602@gmail.com" className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200">nkrishna0602@gmail.com</a>
+                  </p>
+                  <p>
+                    <span className="font-medium">Social Media:</span> You can find me on a few platforms, but I prefer to keep any activities minimal.
+                    If you know me personally, you probably know how to find me on the internet. In any case, it's not worth listing them here.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
                 <p className="text-xs text-neutral-500 pt-1">
                   Last Updated: September 2026
                 </p>
