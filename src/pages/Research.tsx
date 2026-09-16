@@ -1,212 +1,357 @@
 import React from 'react';
 
+type PublicationProps = {
+  title: string;
+  authors: string;
+  venue: string;
+  year: string;
+  href?: string;
+  note?: string;
+};
+
+type PresentationProps = {
+  date: string;
+  event: string;
+  title: string;
+  location?: string;
+  href?: string;
+  note?: string;
+};
+
+const highlightName = (authors: string) => {
+  const parts = authors.split('Krishna Narayanan');
+
+  return parts.map((part, index) => (
+    <React.Fragment key={index}>
+      {part}
+      {index < parts.length - 1 && (
+        <span className="font-medium text-neutral-900">
+          Krishna Narayanan
+        </span>
+      )}
+    </React.Fragment>
+  ));
+};
+
+const Publication: React.FC<PublicationProps> = ({
+  title,
+  authors,
+  venue,
+  year,
+  href,
+  note,
+}) => {
+  return (
+    <article className="py-6 first:pt-0 last:pb-0">
+      <h3 className="text-lg font-medium text-neutral-900 leading-snug">
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary-700 transition-colors duration-200"
+          >
+            {title}
+            <span
+              className="ml-1 text-sm text-primary-500"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+        ) : (
+          title
+        )}
+      </h3>
+
+      <p className="mt-2 text-neutral-700">
+        {highlightName(authors)}
+      </p>
+
+      <p className="mt-1 text-sm text-neutral-500">
+        {venue}
+        {year && <> · {year}</>}
+      </p>
+
+      {note && (
+        <p className="mt-2 text-sm text-neutral-500 italic">
+          {note}
+        </p>
+      )}
+    </article>
+  );
+};
+
+const Presentation: React.FC<PresentationProps> = ({
+  date,
+  event,
+  title,
+  location,
+  href,
+  note,
+}) => {
+  return (
+    <article className="py-5 first:pt-0 last:pb-0 sm:flex sm:gap-6">
+      <div className="mb-2 sm:mb-0 sm:w-28 sm:flex-shrink-0">
+        <span className="text-sm font-medium text-neutral-500">
+          {date}
+        </span>
+      </div>
+
+      <div className="min-w-0">
+        <h3 className="font-medium text-neutral-900">
+          {event}
+        </h3>
+
+        <p className="mt-1">
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-700 hover:text-primary-800 underline decoration-primary-200 hover:decoration-primary-500 underline-offset-2 transition-colors duration-200"
+            >
+              {title}
+            </a>
+          ) : (
+            <span className="text-neutral-700">{title}</span>
+          )}
+        </p>
+
+        {location && (
+          <p className="mt-1 text-sm text-neutral-500">
+            {location}
+          </p>
+        )}
+
+        {note && (
+          <p className="mt-2 text-sm font-medium text-neutral-700">
+            {note}
+          </p>
+        )}
+      </div>
+    </article>
+  );
+};
+
 const Research: React.FC = () => {
   return (
     <div className="page-container">
       <div className="content-wrapper">
-        <h1 className="section-title">Research</h1>
-        
-        <div className="space-y-8">
-          {/* Research Interests */}
-          <section>
-            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">Research Interests</h2>
-            <div className="card group">
-              <p className="text-neutral-700 mb-4">
-                My current research focuses on the questions arising in the larger overview of hardness of approximation. My interests over time have been in combinatorial optimization. I previously explored the computational complexity of geometric parameters in polytopes, which have implications in linear optimization. 
-                I've also worked on graph-theoretic problems, and they remain of interest to me. Algorithms and computational complexity theory are natural extensions of my research interests.  
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-neutral-800 mb-3">Primary Areas:</h3>
-                  <ul className="space-y-2 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Hardness of Approximation
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Combinatorial Optimization
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Linear Programming
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-neutral-800 mb-3">Areas of interest</h3>
-                  <ul className="space-y-2 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Graph Theory 
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Computational Complexity
-                    </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Algorithm Design & Analysis
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto">
+
+          <h1 className="section-title">Research</h1>
+
+          {/* Research interests */}
+          <section className="mb-14">
+            <h2 className="text-2xl font-semibold text-neutral-800 mb-4">
+              Research Interests
+            </h2>
+
+            <p className="max-w-3xl text-neutral-700 leading-relaxed">
+              My current research focuses on questions arising in hardness of
+              approximation, with broader interests in combinatorial
+              optimization and computational complexity. My earlier work has
+              included graph-theoretic problems and computational questions
+              concerning polytopes and linear optimization.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                'Hardness of Approximation',
+                'Combinatorial Optimization',
+                'Linear Programming',
+                'Graph Theory',
+                'Computational Complexity',
+                'Algorithm Design & Analysis',
+              ].map((area) => (
+                <span
+                  key={area}
+                  className="px-3 py-1.5 rounded-full bg-primary-50 border border-primary-100 text-sm text-primary-700"
+                >
+                  {area}
+                </span>
+              ))}
             </div>
           </section>
 
-          {/* Publications Section */}
-          <section>
-            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">Publications</h2>
-            <div className="space-y-6">
-              {/* NEW: Placeholder for Peer-Reviewed/Accepted/In Progress */}
-              <div>
-                <div className="card group">
-                  <p className="text-neutral-700">
-                    Florent Foucaud, <b>Krishna Narayanan</b> and Lekshmi R S. <a href = "https://link.springer.com/chapter/10.1007/978-3-031-25211-2_19" className="text-primary-600 hover:text-primary-700 decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"><i>Monitoring edge-geodetic sets in graphs.</i></a> Proceedings of the 9th International Conference on Algorithms and Discrete Applied Mathematics (CALDAM 2023), Lecture Notes in Computer Science 13947:245-256, 2023
-                  </p>
-                </div>
-                {/* You can add more placeholder items here if you have multiple distinct works */}
-                
-                <div className="card group">
-                  <p className="text-neutral-700">
-                    Subhadeep R. Dev, Sanjana Dey, Florent Foucaud, <b>Krishna Narayanan</b> and Lekshmi R S. <a href = "https://doi.org/10.1016/j.dam.2025.08.041" className="text-primary-600 hover:text-primary-700 decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"><i>Monitoring edge-geodetic sets in graphs.</i></a> <i>Discrete Applied Mathematics</i> 377:598-610, 2025. <i>Special issue for CALDAM 2023. </i>.
-                  </p>
-                </div>
+          {/* Publications */}
+          <section className="mb-14">
+            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">
+              Publications
+            </h2>
 
-                <div className="card group">
-                  <p className="text-neutral-700">
-                    <b>Krishna Narayanan</b> and Tamon Stephen <a href = "https://doi.org/10.1007/978-3-032-17156-6_27" className="text-primary-600 hover:text-primary-700 decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"><i>The Hardness of Monotone Eccentricity on Polytopes.</i></a> In: Misra, N., Pandey, A. (eds) Algorithms and Discrete Applied Mathematics. CALDAM 2026. Lecture Notes in Computer Science, vol 16445. Springer, Cham.
-                  </p>
-                </div>
-              </div>
+            <div className="bg-white border border-neutral-200 rounded-2xl px-6 sm:px-7 py-6 divide-y divide-neutral-200">
 
+              <Publication
+                title="The Hardness of Monotone Eccentricity on Polytopes"
+                authors="Krishna Narayanan and Tamon Stephen"
+                venue="Algorithms and Discrete Applied Mathematics (CALDAM 2026), Lecture Notes in Computer Science, vol. 16445, Springer"
+                year="2026"
+                href="https://doi.org/10.1007/978-3-032-17156-6_27"
+              />
 
-              {/* Submitted Sub-section */}
-              <div>
-                <h3 className="text-xl font-semibold text-neutral-800 mb-4">Preprints</h3>
-                <div className="card group">
-                  <p className="text-neutral-700">
-                     <b>Krishna Narayanan</b> and Tamon Stephen <a href = "https://doi.org/10.48550/arXiv.2605.26505" className="text-primary-600 hover:text-primary-700 decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"><i>--A note on the exact partition polytope of Frieze and Teng</i></a>.
-                  </p>
-                </div> 
-                 
-              </div> 
-{/* */}
-              <div>
-                <h3 className="text-xl font-semibold text-neutral-800 mb-4">In Progress</h3>
-                <div className="card group">
-                  <p className="text-neutral-700">
-                    <b>Krishna Narayanan</b> and Tamon Stephen <i>--On the hardness of monotone eccentricity in polytopes, exact partition and beyond</i>.
-                  </p>
-                </div>
-                {/* Add more submitted papers as needed */}
-              </div>
-            
+              <Publication
+                title="Monitoring edge-geodetic sets in graphs"
+                authors="Subhadeep R. Dev, Sanjana Dey, Florent Foucaud, Krishna Narayanan and Lekshmi R S"
+                venue="Discrete Applied Mathematics, 377:598–610"
+                year="2025"
+                href="https://doi.org/10.1016/j.dam.2025.08.041"
+                note="Special issue for CALDAM 2023."
+              />
+
+              <Publication
+                title="Monitoring edge-geodetic sets in graphs"
+                authors="Florent Foucaud, Krishna Narayanan and Lekshmi R S"
+                venue="Algorithms and Discrete Applied Mathematics (CALDAM 2023), Lecture Notes in Computer Science, 13947:245–256"
+                year="2023"
+                href="https://link.springer.com/chapter/10.1007/978-3-031-25211-2_19"
+              />
 
             </div>
           </section>
-          
-          {/* Academic Presentations */}
-          <section>
-            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">Presentations & Conferences</h2>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                The 12th Annual International Conference on Algorithms and Discrete Applied Mathematics (CALDAM) - February 2026 <br />
-                <a 
-                  href="https://caldam2026.iitdh.ac.in/accepted-papers" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  The hardness of monotone eccentricity on polytopes 
-                </a> <br />
-                  <br />
-                  
-                Indian Institute of Technology, Dharwad, Karnataka, India  
-              </p>
+
+          {/* Preprints */}
+          <section className="mb-14">
+            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">
+              Preprints
+            </h2>
+
+            <div className="border-l-2 border-primary-200 pl-5">
+              <Publication
+                title="A note on the exact partition polytope of Frieze and Teng"
+                authors="Krishna Narayanan and Tamon Stephen"
+                venue="arXiv preprint"
+                year="2026"
+                href="https://doi.org/10.48550/arXiv.2605.26505"
+              />
             </div>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                West Coast Optimization Meeting - October 2025 <br />
-                <a 
-                  href="https://ocana.ok.ubc.ca/wcom25/abstracts.php" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  Towards the computational complexity of monotone diameters of polytopes
-                </a> <br />
-                  <br />
-                  
-                University of British Columbia, Okanagan Campus, Kelowna, BC, Canada. 
-              </p>
-            </div>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                SFU Operations Research Seminar - December 2024 <br />
-                <a 
-                  href="https://researchseminars.org/talk/SFUOR/49/" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  Coping with intractability: Topics at the intersection of Parameterized Algorithms and Linear Optimization
-                </a> <br />
-                  <br />
-                  
-                Graduate Student Presentation for MATH 708. 
-              </p>
-            </div>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                Cascadia Combinatorial Feast - October 2024 <br />
-                <a 
-                  href="https://faculty.sarkara.wwu.edu/2024(2)/ccf_Oct_2024.html" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  Monitoring edge-geodetic sets in graphs
-                </a><br />
-                <br />
-                Held at the University of Victoria, Victoria, BC, Canada. 
-              </p>
-            </div>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                9th Annual International Conference on Algorithms and Discrete Applied Mathematics - February 2023 <br />
-                <a 
-                  href="https://caldam2023.daiict.ac.in/acceptedpapers.php" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  Monitoring edge-geodetic sets in graphs
-                </a><br />
-                Held at the Dhirubhai Ambani Institute of Information and Communication Technology, Gandhinagar, India. <br />
-                <br />
-                <b>Springer Award for Best Student Presentation (One of five recipients)</b>
-              </p>
-            </div>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                Graph theoretical analysis of Buckminsterfullerene <br />
-                <br />
-                Young Researchers' Forum - 6th Annual International Conference on Algorithms and Discrete Applied Mathematics - February 2020, Indian Institute of Technology, Hyderabad, India.<br />
-              </p>
-            </div>
-            <br />
-            <h3 className="text-2xl font-semibold text-neutral-800 mb-6">Other contributions</h3>
-            <div className="card group">
-              <p className="text-neutral-600 whitespace-pre-line">
-                
-                <a 
-                  href="https://sites.google.com/view/eccc2022/abstracts" 
-                  className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                >
-                  Deduction in graph products
-                </a><br />
-                East Coast Combinatorics Conference (ECCC) - 2022, University of Prince Edward Island, Charlottetown.  <br />
-                <br />
-                <b>Presentation by Dr. Danny Dyer. I contributed to the findings presented.</b>
-              </p>
-            </div>
-            
           </section>
+
+          {/* Work in progress */}
+          <section className="mb-14">
+            <h2 className="text-2xl font-semibold text-neutral-800 mb-5">
+              Work in Progress
+            </h2>
+
+            <div className="border-l-2 border-neutral-200 pl-5">
+              <h3 className="text-lg font-medium text-neutral-900">
+                On the hardness of monotone eccentricity in polytopes,
+                exact partition and beyond
+              </h3>
+
+              <p className="mt-2 text-neutral-700">
+                <span className="font-medium text-neutral-900">
+                  Krishna Narayanan
+                </span>{' '}
+                and Tamon Stephen
+              </p>
+            </div>
+          </section>
+
+          {/* Presentations */}
+          <section className="mb-14">
+            <div className="mb-6">
+              <h2 className="text-2xl font-semibold text-neutral-800">
+                Talks & Presentations
+              </h2>
+
+              <p className="mt-2 text-sm text-neutral-500">
+                Selected conference and seminar presentations.
+              </p>
+            </div>
+
+            <div className="divide-y divide-neutral-200">
+
+              <Presentation
+                date="Feb 2026"
+                event="12th International Conference on Algorithms and Discrete Applied Mathematics (CALDAM)"
+                title="The hardness of monotone eccentricity on polytopes"
+                location="Indian Institute of Technology Dharwad, Karnataka, India"
+                href="https://caldam2026.iitdh.ac.in/accepted-papers"
+              />
+
+              <Presentation
+                date="Oct 2025"
+                event="West Coast Optimization Meeting"
+                title="Towards the computational complexity of monotone diameters of polytopes"
+                location="University of British Columbia, Okanagan Campus, Kelowna, BC, Canada"
+                href="https://ocana.ok.ubc.ca/wcom25/abstracts.php"
+              />
+
+              <Presentation
+                date="Dec 2024"
+                event="SFU Operations Research Seminar"
+                title="Coping with intractability: Topics at the intersection of Parameterized Algorithms and Linear Optimization"
+                location="Simon Fraser University"
+                href="https://researchseminars.org/talk/SFUOR/49/"
+                note="Graduate student presentation for MATH 708."
+              />
+
+              <Presentation
+                date="Oct 2024"
+                event="Cascadia Combinatorial Feast"
+                title="Monitoring edge-geodetic sets in graphs"
+                location="University of Victoria, Victoria, BC, Canada"
+                href="https://faculty.sarkara.wwu.edu/2024(2)/ccf_Oct_2024.html"
+              />
+
+              <Presentation
+                date="Feb 2023"
+                event="9th International Conference on Algorithms and Discrete Applied Mathematics (CALDAM)"
+                title="Monitoring edge-geodetic sets in graphs"
+                location="Dhirubhai Ambani Institute of Information and Communication Technology, Gandhinagar, India"
+                href="https://caldam2023.daiict.ac.in/acceptedpapers.php"
+                note="Springer Award for Best Student Presentation — one of five recipients."
+              />
+
+              <Presentation
+                date="Feb 2020"
+                event="Young Researchers' Forum — 6th International Conference on Algorithms and Discrete Applied Mathematics"
+                title="Graph theoretical analysis of Buckminsterfullerene"
+                location="Indian Institute of Technology Hyderabad, India"
+              />
+
+            </div>
+          </section>
+
+          {/* Other contributions */}
+          <section>
+            <h2 className="text-2xl font-semibold text-neutral-800 mb-6">
+              Other Contributions
+            </h2>
+
+            <div className="border-l-2 border-neutral-200 pl-5">
+              <p className="text-sm font-medium text-neutral-500 mb-1">
+                2022 · East Coast Combinatorics Conference
+              </p>
+
+              <h3 className="text-lg font-medium text-neutral-900">
+                <a
+                  href="https://sites.google.com/view/eccc2022/abstracts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-700 transition-colors duration-200"
+                >
+                  Deduction in graph products ↗
+                </a>
+              </h3>
+
+              <p className="mt-2 text-sm text-neutral-500">
+                University of Prince Edward Island, Charlottetown, Canada
+              </p>
+
+              <p className="mt-2 text-neutral-700">
+                Presented by Dr. Danny Dyer. I contributed to the findings
+                presented.
+              </p>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Research;
