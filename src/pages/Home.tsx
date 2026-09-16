@@ -55,7 +55,7 @@ const Home: React.FC = () => {
               {/* Research summary */}
               <p className="mt-5 max-w-2xl text-sm sm:text-base text-white/80 leading-relaxed">
                 Hardness of Approximation · Combinatorial Optimization ·
-                Graph Theory · Polyhedral Combinatorics · Computational Complexity
+                Graph Theory
               </p>
 
               {/* Actions */}
