@@ -257,11 +257,20 @@ const Research: React.FC = () => {
               </h2>
 
               <p className="mt-2 text-sm text-neutral-500">
-                Selected conference and seminar presentations.
+                Conference and seminar presentations.
               </p>
             </div>
 
             <div className="divide-y divide-neutral-200">
+            <Presentation
+  date="Apr 2026"
+  event="Department of Applied Mathematics and Computational Sciences, PSG College of Technology"
+  title="YOUR TALK TITLE"
+  location="Coimbatore, Tamil Nadu, India"
+  href="https://www.linkedin.com/posts/psgandsonscharities_psgevents-psgtech-psgtechalumni-activity-7444999327841841152-pQ64?utm_source=share&utm_medium=member_desktop&rcm=ACoAACf01xABmYG8zG8XWeNMXXJbXVsKj_udoSI"
+  linkLabel="Department announcement"
+  note="Invited seminar on my master's thesis research."
+/>
 
               <Presentation
                 date="Feb 2026"
