@@ -15,6 +15,7 @@ type PresentationProps = {
   title: string;
   location?: string;
   href?: string;
+  linkLabel?: string;
   note?: string;
 };
 
@@ -88,6 +89,7 @@ const Presentation: React.FC<PresentationProps> = ({
   title,
   location,
   href,
+  linkLabel,
   note,
 }) => {
   return (
@@ -103,19 +105,8 @@ const Presentation: React.FC<PresentationProps> = ({
           {event}
         </h3>
 
-        <p className="mt-1">
-          {href ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-700 hover:text-primary-800 underline decoration-primary-200 hover:decoration-primary-500 underline-offset-2 transition-colors duration-200"
-            >
-              {title}
-            </a>
-          ) : (
-            <span className="text-neutral-700">{title}</span>
-          )}
+        <p className="mt-1 text-neutral-700">
+          {title}
         </p>
 
         {location && (
@@ -124,8 +115,21 @@ const Presentation: React.FC<PresentationProps> = ({
           </p>
         )}
 
+        {href && (
+          <p className="mt-2 text-sm">
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
+            >
+              {linkLabel || 'Event link'} ↗
+            </a>
+          </p>
+        )}
+
         {note && (
-          <p className="mt-2 text-sm font-medium text-neutral-700">
+          <p className="mt-2 text-sm text-neutral-600 italic">
             {note}
           </p>
         )}
@@ -133,7 +137,6 @@ const Presentation: React.FC<PresentationProps> = ({
     </article>
   );
 };
-
 const Research: React.FC = () => {
   return (
     <div className="page-container">
