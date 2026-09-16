@@ -268,7 +268,7 @@ const Research: React.FC = () => {
             <Presentation
   date="Apr 2026"
   event="Department of Applied Mathematics and Computational Sciences, PSG College of Technology"
-  title="YOUR TALK TITLE"
+  title="Towards the complexity of monotone shortest paths on simple polytopes"
   location="Coimbatore, Tamil Nadu, India"
   href="https://www.linkedin.com/posts/psgandsonscharities_psgevents-psgtech-psgtechalumni-activity-7444999327841841152-pQ64?utm_source=share&utm_medium=member_desktop&rcm=ACoAACf01xABmYG8zG8XWeNMXXJbXVsKj_udoSI"
   linkLabel="Department announcement"
