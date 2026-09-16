@@ -3,165 +3,188 @@ import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-50"> {/* Use Tailwind class for background */}
-      {/* Background Image Section - From very top to just below photo */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[450px] sm:h-[520px] bg-cover bg-center bg-no-repeat" // Increased mobile height to 450px for more text space
-        style={{ backgroundImage: 'url(/bg.jpg)' }}
-      >
-        {/* Even stronger overlay to make background much less visible */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/70 to-black/65" />
-      </div>
-      
-      {/* Content Container (relative to allow z-index, handles overall padding) */}
-      {/* Increased mobile top padding to push content down more from top edge */}
-      <div className="relative z-10 pt-16 sm:pt-20"> 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12"> {/* Responsive horizontal padding */}
-          <div className="space-y-8 sm:space-y-12">
-            {/* Photo and Name Section */}
-            {/* On mobile (default), stack vertically and center items */}
-            {/* On small screens (sm:), switch to horizontal layout, align items to start */}
-            <div className="fade-in flex flex-col items-center sm:flex-row sm:items-start gap-8">
-              {/* Photo */}
-              <div className="flex-shrink-0">
-                <div className="relative">
-                  {/* Responsive photo size: smaller on mobile, larger on sm: */}
-                  <div className="w-40 h-52 sm:w-56 sm:h-72 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-xl overflow-hidden shadow-2xl">
-                    <img
-                      src="/NK.png"
-                      alt="Krishna Narayanan"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10"></div>
-                </div>
-              </div>
+    <div className="min-h-screen bg-slate-50">
 
-              {/* Name and Title - Right of Photo */}
-              {/* On mobile, text-align center, on sm: text-align left */}
-              {/* Reverted font for name/title/location using original inline styles + responsive text sizes */}
-              <div className="flex-1 space-y-2 pt-4 text-center sm:text-left"> {/* Adjusted space-y for tighter mobile */}
-                <h1 className="home-name text-white tracking-tight leading-tight" style={{ 
-                    fontSize: '2.5rem', // Smaller on mobile
-                    fontWeight: '200', 
-                    letterSpacing: '-0.025em',
-                    textShadow: '0 4px 8px rgba(0,0,0,0.3)',
-                    lineHeight: '1.1'
-                }}>
-                  Krishna Narayanan
-                </h1>
-                <p className="home-location text-white/90" style={{ 
-                    fontSize: '1rem', // Smaller on mobile
-                    fontWeight: '200', 
-                    textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-                }}>
-                  Current affiliation: University of Southern Denmark, Odense, Denmark
-                </p>
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/bg.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/65" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 pt-28 pb-14 sm:pt-32 sm:pb-20">
+          <div className="flex flex-col items-center sm:flex-row sm:items-center gap-7 sm:gap-10">
+
+            {/* Photo */}
+            <div className="flex-shrink-0">
+              <div className="relative">
+                <div className="w-36 h-44 sm:w-48 sm:h-60 rounded-xl overflow-hidden shadow-xl">
+                  <img
+                    src="/NK.png"
+                    alt="Krishna Narayanan"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/20" />
               </div>
             </div>
 
-            {/* Main Content Section - Below Photo with white background */}
-            {/* Adjusted negative margin for better overlap on mobile. Reduced padding for mobile. */}
-            <div className="fade-in space-y-6 bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-8 shadow-xl border border-white/50 -mt-24 sm:mt-0"> {/* Adjusted negative margin */}
-              {/* Academic Introduction */}
-              <div className="prose-enhanced space-y-4 text-sm sm:text-base font-normal text-neutral-700">
-                <p>
-                  Welcome to my academic portfolio. I am currently a PhD Research Fellow at the University of Southern Denmark in Odense, where I am fortunate to be advised by Lars Rohwedder within the Algorithms unit at the Department of Mathematics and Computer Science. Not too long ago, I defended my master's thesis in Mathematics 
-                  at Simon Fraser University, Burnaby, BC, Canada under the supervision of Prof. Tamon Stephen, with a focus on Discrete Optimization. My master's work explored algorithmic questions in polytope theory and their computational complexity. 
-                </p>
-                
-                <p>
-                  Before all this, I graduated with an Integrated Master's degree in Theoretical Computer Science 
-                  from PSG College of Technology, Coimbatore, India (degree awarded by Anna University, Chennai), 
-                  where I worked under the supervision of Prof. Lekshmi R S in the Department of 
-                  Applied Mathematics and Computational Sciences.
-                </p>
+            {/* Hero text */}
+            <div className="text-center sm:text-left">
+              <h1
+                className="text-white tracking-tight leading-tight"
+                style={{
+                  fontSize: 'clamp(2.4rem, 6vw, 4rem)',
+                  fontWeight: '200',
+                  letterSpacing: '-0.035em',
+                  textShadow: '0 4px 8px rgba(0,0,0,0.25)',
+                }}
+              >
+                Krishna Narayanan
+              </h1>
 
-                <p>
-                  My current focus is within the scope of hardness of approximation. More broadly, I am interested in topics arising from Combinatorial Optimization, 
-                  Graph Theory, Polyhedral Combinatorics, and Computational Complexity Theory, 
-                  in no particular order. 
-                </p>
-              </div>
+              <p className="mt-3 text-lg sm:text-xl text-white/90 font-light">
+                PhD Research Fellow in Computer Science
+              </p>
 
-              {/* Personal Philosophy & Interests */}
-              <div className="pt-4 sm:pt-6 border-t border-neutral-200 space-y-3">
-                <p className="text-neutral-700 text-sm sm:text-base font-normal">
-                  I believe in keeping an open mind for good discussion and debate, as that's how I learn best. 
-                  I have a variety of interests outside of academics; feel free to read more about them{' '}
-                  <Link 
-                    to="/miscellaneous" 
-                    className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                  >
-                    here
-                  </Link>.
-                </p>
-                
-                <p className="text-neutral-700 text-sm sm:text-base font-normal">
-                  Find a copy of my CV{' '}
-                  <a 
-                    href="/NK_CV_full-2.pdf" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-                  >
-                    here
-                  </a>.
-                </p>
-            <section className="max-w-xl mx-auto bg-primary-50 rounded-2xl shadow-lg p-5 sm:p-7 border border-primary-200">
-  <h2 className="text-2xl font-bold text-primary-800 mb-5 pb-2 border-b border-primary-300">
-    Contact
-  </h2>
+              <p className="mt-1 text-sm sm:text-base text-white/75">
+                University of Southern Denmark · Odense, Denmark
+              </p>
 
-  <div className="space-y-5 text-sm text-neutral-700">
-    <div>
-      <h3 className="text-lg font-semibold text-primary-700 mb-2">
-        Academic
-      </h3>
-      <p>
-        <a
-          href="mailto:nanakrish@imada.sdu.dk"
-          className="text-primary-600 hover:text-primary-700 underline"
-        >
-          nanakrish@imada.sdu.dk
-        </a>
-      </p>
-      <p className="mt-1 text-neutral-600">
-        Department of Mathematics and Computer Science
-        <br />
-        University of Southern Denmark, Odense
-      </p>
-    </div>
+              {/* Research summary */}
+              <p className="mt-5 max-w-2xl text-sm sm:text-base text-white/80 leading-relaxed">
+                Hardness of Approximation · Combinatorial Optimization ·
+                Graph Theory · Polyhedral Combinatorics · Computational Complexity
+              </p>
 
-    <div>
-      <h3 className="text-lg font-semibold text-primary-700 mb-2">
-        General & Personal
-      </h3>
-      <p>
-        <a
-          href="mailto:nkrishna0602@gmail.com"
-          className="text-primary-600 hover:text-primary-700 underline"
-        >
-          nkrishna0602@gmail.com
-        </a>
-      </p>
-      <p className="mt-1 text-neutral-600">
-        I keep my social media presence minimal. If you know me personally,
-        you probably already know where to find me online.
-      </p>
-    </div>
-  </div>
-</section>
-                <p className="text-xs text-neutral-500 pt-1">
-                  Last Updated: September 2026
-                </p>
+              {/* Actions */}
+              <div className="mt-6 flex flex-wrap justify-center sm:justify-start gap-3">
+                <Link
+                  to="/research"
+                  className="inline-flex items-center rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-800 shadow-sm hover:bg-neutral-100 transition-colors duration-200"
+                >
+                  Research
+                </Link>
+
+                <a
+                  href="/NK_CV_full-2.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/20 transition-colors duration-200"
+                >
+                  CV
+                </a>
+
+                <a
+                  href="mailto:nanakrish@imada.sdu.dk"
+                  className="inline-flex items-center rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/20 transition-colors duration-200"
+                >
+                  Email
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Main content */}
+      <main className="max-w-4xl mx-auto px-5 sm:px-6 py-10 sm:py-14">
+
+        {/* About */}
+        <section className="bg-white rounded-2xl border border-neutral-200 p-6 sm:p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-neutral-800 mb-5">
+            About
+          </h2>
+
+          <div className="space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
+            <p>
+              I am a PhD Research Fellow at the University of Southern Denmark,
+              where I am advised by Lars Rohwedder in the Algorithms unit of the
+              Department of Mathematics and Computer Science. My current research
+              focuses on hardness of approximation, with broader interests in
+              combinatorial optimization, graph theory, polyhedral combinatorics,
+              and computational complexity.
+            </p>
+
+            <p>
+              Previously, I completed a Master's degree in Mathematics at Simon
+              Fraser University under the supervision of Prof. Tamon Stephen,
+              where my work focused on the computational complexity of some questions in polytope theory
+              and their computational complexity. Before that, I completed an
+              Integrated Master's degree in Theoretical Computer Science at PSG
+              College of Technology where I worked under the supervision of Dr. Lekshmi R S, with the degree awarded by Anna University.
+            </p>
+
+            <p>
+              I enjoy open-minded discussion and debate and have a variety of
+              interests outside academics. You can read more about them{' '}
+              <Link
+                to="/miscellaneous"
+                className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
+              >
+                here
+              </Link>.
+            </p>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="max-w-xl mx-auto mt-10 bg-primary-50 rounded-2xl shadow-sm p-5 sm:p-7 border border-primary-200">
+          <h2 className="text-2xl font-bold text-primary-800 mb-5 pb-2 border-b border-primary-300">
+            Contact
+          </h2>
+
+          <div className="space-y-5 text-sm text-neutral-700">
+            <div>
+              <h3 className="text-lg font-semibold text-primary-700 mb-2">
+                Academic
+              </h3>
+
+              <p>
+                <a
+                  href="mailto:nanakrish@imada.sdu.dk"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  nanakrish@imada.sdu.dk
+                </a>
+              </p>
+
+              <p className="mt-1 text-neutral-600">
+                Department of Mathematics and Computer Science
+                <br />
+                University of Southern Denmark, Odense
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-primary-700 mb-2">
+                General & Personal
+              </h3>
+
+              <p>
+                <a
+                  href="mailto:nkrishna0602@gmail.com"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  nkrishna0602@gmail.com
+                </a>
+              </p>
+
+              <p className="mt-1 text-neutral-600">
+                I keep my social media presence minimal. If you know me
+                personally, you probably already know where to find me online.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <p className="text-center text-xs text-neutral-400 mt-8">
+          Last updated: September 2026
+        </p>
+      </main>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
