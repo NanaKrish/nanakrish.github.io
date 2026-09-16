@@ -110,10 +110,9 @@ const Home: React.FC = () => {
             <p>
               Previously, I completed a Master's degree in Mathematics at Simon
               Fraser University under the supervision of Prof. Tamon Stephen,
-              where my work focused on the computational complexity of some questions in polytope theory
-              and their computational complexity. Before that, I completed an
+              where my work focused on the computational complexity of some questions in polytope theory. Before that, I completed an
               Integrated Master's degree in Theoretical Computer Science at PSG
-              College of Technology where I worked under the supervision of Dr. Lekshmi R S, with the degree awarded by Anna University.
+              College of Technology where I worked under the supervision of Dr. Lekshmi R S, with the degree awarded by Anna University, Chennai, India.
             </p>
 
             <p>
