@@ -103,8 +103,7 @@ const Home: React.FC = () => {
               where I am advised by Lars Rohwedder in the Algorithms unit of the
               Department of Mathematics and Computer Science. My current research
               focuses on hardness of approximation, with broader interests in
-              combinatorial optimization, graph theory, polyhedral combinatorics,
-              and computational complexity.
+              combinatorial optimization, graph theory and computational hardness.
             </p>
 
             <p>
