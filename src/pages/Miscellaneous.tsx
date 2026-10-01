@@ -29,8 +29,7 @@ const Miscellaneous: React.FC = () => {
               </h2>
 
               <p className="text-neutral-700 leading-relaxed mb-8 max-w-3xl">
-                While my academic pursuits in discrete optimization and
-                polytope theory consume a significant portion of my time,
+                While my academic pursuits consume a significant portion of my time,
                 my interests span a much wider spectrum. I find immense joy
                 in exploring subjects that enrich my understanding of the
                 world and challenge my perspectives.
@@ -196,7 +195,7 @@ const Miscellaneous: React.FC = () => {
             {/* Philosophy & Expression */}
             <section className="bg-white rounded-2xl border border-neutral-200 p-6 sm:p-8">
               <h2 className="text-2xl font-semibold text-neutral-800 mb-7">
-                Philosophy & Expression
+                What makes me, me?
               </h2>
 
               <div className="space-y-9">
@@ -204,7 +203,7 @@ const Miscellaneous: React.FC = () => {
                 {/* Philosophy */}
                 <div className="border-l-2 border-amber-300 pl-5">
                   <h3 className="text-lg font-semibold text-neutral-800 mb-3">
-                    My Philosophical Stance
+                    My Beliefs
                   </h3>
 
                   <div className="space-y-4 text-neutral-700 leading-relaxed">
@@ -266,7 +265,7 @@ const Miscellaneous: React.FC = () => {
                       self-damaging, has often yielded my most focused and
                       creative work. Rest assured, however, that I am
                       bone-headed enough to stick it out until I've taken an
-                      objective to its logical conclusion, no matter the cost.
+                      objective to its logical conclusion, no matter what it takes. 
                     </p>
                   </div>
                 </div>
