@@ -103,7 +103,7 @@ const Home: React.FC = () => {
               where I am advised by Lars Rohwedder in the Algorithms unit of the
               Department of Mathematics and Computer Science. My current research
               focuses on hardness of approximation, with broader interests in
-              combinatorial optimization, graph theory and computational hardness.
+              combinatorial optimization, graph theory and related topics.
             </p>
 
             <p>
@@ -115,14 +115,7 @@ const Home: React.FC = () => {
             </p>
 
             <p>
-              I enjoy open-minded discussion and debate and have a variety of
-              interests outside academics. You can read more about them{' '}
-              <Link
-                to="/miscellaneous"
-                className="text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-200"
-              >
-                here
-              </Link>.
+              I enjoy open-minded discussion and debate and have a variety of interests outside academics. I talk about some of them elsewhere on this page; you are very welcome to check that out. 
             </p>
           </div>
         </section>
