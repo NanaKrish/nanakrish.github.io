@@ -68,7 +68,7 @@ const Home: React.FC = () => {
                 </Link>
 
                 <a
-                  href="/NK_CV_full-2.pdf"
+                  href="/NK_CV_full-6.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center rounded-lg border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm hover:bg-white/20 transition-colors duration-200"
