@@ -6,6 +6,7 @@ import Education from './pages/Education'
 import Research from './pages/Research'
 import Experience from './pages/Experience'
 import Miscellaneous from './pages/Miscellaneous'
+import Photography from './pages/Photography'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/research" element={<Research />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/miscellaneous" element={<Miscellaneous />} />
+        <Route path="/photography" element={<Photos />} />
       </Routes>
     </Layout>
   )

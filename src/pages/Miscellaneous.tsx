@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Miscellaneous: React.FC = () => {
   return (
@@ -138,6 +139,18 @@ const Miscellaneous: React.FC = () => {
                 </div>
               </div>
             </section>
+
+            {/* Photography */}
+<section className="bg-white rounded-2xl border border-neutral-200 p-6 sm:p-8">
+  <h2 className="text-2xl font-semibold text-neutral-800 mb-4">Photography</h2>
+  <p className="text-neutral-700 leading-relaxed mb-5">
+    Some photographs remind me of moments when I stood still, took a deep breath,
+    and soaked in the view. I have collected a few of them here.
+  </p>
+  <Link to="/photography" className="text-primary-600 hover:text-primary-700 underline underline-offset-4">
+    Browse my photographs
+  </Link>
+</section>
 
             {/* Other activities */}
             <section className="bg-white rounded-2xl border border-neutral-200 p-6 sm:p-8">
