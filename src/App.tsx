@@ -6,7 +6,7 @@ import Education from './pages/Education'
 import Research from './pages/Research'
 import Experience from './pages/Experience'
 import Miscellaneous from './pages/Miscellaneous'
-import Photography from './pages/Photography'
+import Photos from './pages/Photos'
 
 function App() {
   return (
