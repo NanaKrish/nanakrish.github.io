@@ -115,13 +115,11 @@ const Home: React.FC = () => {
             </p>
 
             <p>
-              I enjoy open-minded discussion and debate and have a variety of interests outside academics. I talk about some of them elsewhere on this page; you are very welcome to check that out. <p>
-  I also keep a small repository of{' '}
+              I enjoy open-minded discussion and debate and have a variety of interests outside academics. I talk about some of them elsewhere on this page; you are very welcome to check that out. I also keep a small repository of{' '}
   <Link to="/photography" className="text-primary-600 hover:text-primary-700 underline">
     photos
   </Link>{' '}
   of moments when I stopped and took in the view. They're amateurish, so don't hold it against me.
-</p>
             </p>
           </div>
         </section>
