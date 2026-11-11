@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import type { Photo } from '../data/photos';
-import { imagePath, captionForPhoto, seriesNotes } from '../data/photos';
+import { imagePath, captionForPhoto } from '../data/photos';
 
 interface PhotoLightboxProps {
   images: Photo[];
@@ -9,7 +9,6 @@ interface PhotoLightboxProps {
   onClose: () => void;
 }
 
-/** Full-size viewer: Escape, arrows, click controls, and touch swipes. */
 const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
   images, index, onIndexChange, onClose,
 }) => {
@@ -17,22 +16,21 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
   const touchStartX = useRef<number | null>(null);
   const current = images[index];
   const caption = current ? captionForPhoto(current) : null;
-  const seriesTitle = current?.series ? seriesNotes[current.series].title : null;
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
+    const oldOverflow = document.body.style.overflow;
     const previousFocus = document.activeElement instanceof HTMLElement
       ? document.activeElement : null;
     document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = oldOverflow;
       previousFocus?.focus();
     };
   }, []);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const keyHandler = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault();
         onClose();
@@ -43,7 +41,6 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
         event.preventDefault();
         onIndexChange((index - 1 + images.length) % images.length);
       } else if (event.key === 'Tab') {
-        // Keep keyboard focus within the three gallery controls.
         const controls = Array.from(document.querySelectorAll<HTMLButtonElement>(
           '[data-photo-dialog-control]'
         ));
@@ -59,12 +56,11 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
         }
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', keyHandler);
+    return () => window.removeEventListener('keydown', keyHandler);
   }, [images.length, index, onClose, onIndexChange]);
 
   if (!current) return null;
-
   const next = () => onIndexChange((index + 1) % images.length);
   const previous = () => onIndexChange((index - 1 + images.length) % images.length);
 
@@ -73,7 +69,7 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
       className="fixed inset-0 z-[80] flex flex-col bg-[#0d1114]/[0.97] text-white"
       role="dialog"
       aria-modal="true"
-      aria-label={`Photo ${index + 1} of ${images.length}: ${current.title}`}
+      aria-label={`Photograph ${index + 1} of ${images.length}${current.place ? `, ${current.place}` : ''}`}
       onTouchStart={(event) => { touchStartX.current = event.touches[0]?.clientX ?? null; }}
       onTouchEnd={(event) => {
         if (touchStartX.current === null) return;
@@ -83,9 +79,7 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
       }}
     >
       <div className="flex flex-none items-center justify-between px-5 py-4 sm:px-8">
-        <span className="text-xs tracking-[0.14em] text-white/60 uppercase">
-          Through my lens
-        </span>
+        <span className="text-xs text-white/60">Photography</span>
         <button
           ref={closeButtonRef}
           data-photo-dialog-control
@@ -101,7 +95,7 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
         <button
           data-photo-dialog-control
           type="button"
-          aria-label="Previous photo (left arrow)"
+          aria-label="Previous photograph (left arrow)"
           onClick={previous}
           className="flex h-10 w-10 flex-none items-center justify-center rounded-full border border-white/25 text-2xl hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:w-12"
         >
@@ -110,14 +104,14 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
         <img
           key={current.id}
           src={imagePath(current)}
-          alt={current.alt}
+          alt={current.place ?? ''}
           className="min-h-0 min-w-0 max-h-full max-w-full flex-1 object-contain"
           style={{ maxHeight: 'calc(100dvh - 180px)' }}
         />
         <button
           data-photo-dialog-control
           type="button"
-          aria-label="Next photo (right arrow)"
+          aria-label="Next photograph (right arrow)"
           onClick={next}
           className="flex h-10 w-10 flex-none items-center justify-center rounded-full border border-white/25 text-2xl hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:w-12"
         >
@@ -126,19 +120,13 @@ const PhotoLightbox: React.FC<PhotoLightboxProps> = ({
       </div>
       <div className="flex flex-none items-start justify-between gap-4 border-t border-white/10 px-5 pb-5 pt-4 sm:px-8">
         <div className="min-w-0 max-w-3xl flex-1">
-          <p className="text-base font-medium sm:text-lg">
-            {current.locationOnly ? (current.place || current.title) : current.title}
-          </p>
-          {!current.locationOnly && (current.place || current.taken) && (
-            <p className="mt-1 text-xs text-white/60 sm:text-sm">
+          {(current.place || current.taken) && (
+            <p className="text-sm text-white/75">
               {[current.place, current.taken].filter(Boolean).join(' · ')}
             </p>
           )}
-          {seriesTitle && (
-            <p className="mt-3 text-[11px] font-medium uppercase tracking-wider text-white/50">{seriesTitle}</p>
-          )}
           {caption && (
-            <div className="mt-2 max-h-[22dvh] overflow-y-auto pr-3 text-sm leading-relaxed text-white/80">
+            <div className="mt-3 max-h-[24dvh] overflow-y-auto pr-3 text-sm leading-relaxed text-white/90">
               {caption}
             </div>
           )}
