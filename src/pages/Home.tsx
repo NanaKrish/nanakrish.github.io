@@ -115,7 +115,7 @@ const Home: React.FC = () => {
             </p>
 
             <p>
-              I enjoy open-minded discussion and debate and have a variety of interests outside academics. I talk about some of them elsewhere on this page; you are very welcome to check that out. I also keep a small repository of photos of moments when I stopped and took in the view which you will find there. They're amateurish, so don't hold it against me.
+              I enjoy open-minded discussion and debate and have a variety of interests outside academics. I talk about some of them elsewhere on this page and also have a small cache of photos (I have a penchant for expansive views and you'll see a lot of that, but they might also just be amateurish; don't hold it against me); you are very welcome to check that out.
             </p>
           </div>
         </section>
